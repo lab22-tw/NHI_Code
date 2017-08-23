@@ -11,7 +11,7 @@ def parse(fn):
                '中文項目名稱', '附註']
     fee_file.write(','.join(headers) + '\n')
     for line in lines:
-        data_arr = [x.strip() for x in line.split('^')][:-1]
+        data_arr = [x.strip().replace('"', '') for x in line.split('^')][:-1]
         fee_file.write(','.join(data_arr) + '\n')
     fee_file.close()
 
